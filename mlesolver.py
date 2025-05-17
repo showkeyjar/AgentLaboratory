@@ -5,7 +5,7 @@ from common_imports import *
 from abc import abstractmethod
 
 
-from tools import *
+from tools.common import execute_code
 from inference import *
 from pathlib import Path
 

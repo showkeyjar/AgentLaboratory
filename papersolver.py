@@ -1,7 +1,7 @@
 import random
 import string
 from utils import *
-from tools import *
+from tools.common import ArxivSearch
 from copy import copy
 from inference import *
 from pathlib import Path
