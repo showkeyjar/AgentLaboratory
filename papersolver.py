@@ -7,7 +7,7 @@ from inference import *
 from pathlib import Path
 from copy import deepcopy
 from common_imports import *
-from agents import get_score
+from agents.base import get_score
 from abc import abstractmethod
 
 from contextlib import contextmanager

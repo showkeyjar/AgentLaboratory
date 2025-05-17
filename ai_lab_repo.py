@@ -1,7 +1,12 @@
 import PyPDF2
 import threading
 from app import *
-from agents import *
+from agents.professor import ProfessorAgent
+from agents.postdoc import PostdocAgent
+from agents.phd_student import PhDStudentAgent
+from agents.ml_engineer import MLEngineerAgent
+from agents.sw_engineer import SWEngineerAgent
+from agents.reviewers import ReviewersAgent
 from tools.common import HFDataSearch, ArxivSearch, execute_code
 from copy import copy
 from pathlib import Path
