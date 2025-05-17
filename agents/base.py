@@ -1,7 +1,7 @@
-from utils import *
-from tools import *
-from inference import *
-import random, string
+from utils import extract_prompt
+# from tools import *  # Consider removing if not used, or import specifics if needed elsewhere via base
+from inference import query_model
+# import random, string # These seem unused in base.py; consider removing.
 
 
 def extract_json_between_markers(llm_output):
