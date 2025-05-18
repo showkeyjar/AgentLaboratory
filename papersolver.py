@@ -34,10 +34,6 @@ class Command:
         pass
 
 
-def execute_latex():
-    return True
-
-
 """
 @@@@@@@@@@@@@@@@@@
 @@ SEARCH TOOLS @@
