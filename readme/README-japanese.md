@@ -65,13 +65,13 @@ sudo apt install pdflatex
 5. **Agent Laboratoryを実行します！**
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
 ```
 
 または、pdflatexがインストールされていない場合
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
 ```
 
 -----
@@ -84,7 +84,7 @@ python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --researc
 
 また、**エージェントがアクセスできる計算資源**を知らせる機会でもあります。例えば、GPU（数、種類、GB数）、CPU（コア数、種類）、ストレージの制限、ハードウェア仕様などです。
 
-ノートを追加するには、ai_lab_repo.py内のtask_notes_LLM構造を変更する必要があります。以下に、いくつかの実験で使用されたノートの例を示します。
+ノートを追加するには、ai_lab/main.py内のtask_notes_LLM構造を変更する必要があります。以下に、いくつかの実験で使用されたノートの例を示します。
 
 ```python
 task_notes_LLM = [
@@ -125,10 +125,10 @@ task_notes_LLM = [
 
 #### [ヒント #3] ✅ チェックポイントから以前の保存をロードできます ✅
 
-**進捗が失われた場合、インターネット接続が切れた場合、またはサブタスクが失敗した場合でも、以前の状態から常にロードできます。** すべての進捗はデフォルトでstate_saves変数に保存され、各チェックポイントが保存されます。ai_lab_repo.pyを実行する際に、以下の引数を渡すだけです
+**進捗が失われた場合、インターネット接続が切れた場合、またはサブタスクが失敗した場合でも、以前の状態から常にロードできます。** すべての進捗はデフォルトでstate_saves変数に保存され、各チェックポイントが保存されます。ai_lab/main.pyを実行する際に、以下の引数を渡すだけです
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -143,7 +143,7 @@ Agent Laboratoryを英語以外の言語で実行している場合でも問題�
 例えば、中国語で実行する場合：
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

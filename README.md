@@ -83,7 +83,8 @@ sudo apt install pdflatex
 
 5. **Now run Agent Laboratory!**
 
-`python ai_lab_repo.py --yaml-location "experiment_configs/MATH_agentlab.yaml"`
+Run the package entry point instead:
+`python -m ai_lab --yaml-location "experiment_configs/MATH_agentlab.yaml"`
 
 
 ### Co-Pilot mode
@@ -100,7 +101,9 @@ To run Agent Laboratory in copilot mode, simply set the copilot-mode flag in you
 
 This is also your opportunity to let the agent know **what compute resources it has access to**, e.g. GPUs (how many, what type of GPU, how many GBs), CPUs (how many cores, what type of CPUs), storage limitations, and hardware specs.
 
-In order to add notes, you must modify the task_notes_LLM structure inside of `ai_lab_repo.py`. Provided below is an example set of notes used for some of our experiments. 
+In order to add notes, you must modify the `task_notes_LLM` structure inside of
+`ai_lab/main.py`. Provided below is an example set of notes used for some of our
+experiments.
 
 
 ```

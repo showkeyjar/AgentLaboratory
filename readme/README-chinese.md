@@ -62,11 +62,11 @@
 
 5. **现在运行 Agent Laboratory！**
     
-    `python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"`
+    `python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"`
     
     或者，如果您没有安装 pdflatex
     
-    `python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False`
+    `python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False`
 
 -----
 
@@ -78,7 +78,7 @@
 
 这也是您让代理知道**它可以访问的计算资源**的机会，例如 GPU（数量、类型、内存大小）、CPU（核心数量、类型）、存储限制和硬件规格。
 
-为了添加笔记，您必须修改 `ai_lab_repo.py` 中的 `task_notes_LLM` 结构。以下是我们的一些实验中使用的笔记示例。
+为了添加笔记，您必须修改 `ai_lab/main.py` 中的 `task_notes_LLM` 结构。以下是我们的一些实验中使用的笔记示例。
 
 ```
 task_notes_LLM = [
@@ -119,9 +119,9 @@ task_notes_LLM = [
 
 #### [技巧 #3] ✅ 您可以从检查点加载之前的保存 ✅
 
-**如果您丢失了进度、互联网连接中断或子任务失败，您始终可以从先前的状态加载。** 您的所有进度默认保存在 `state_saves` 变量中，该变量存储每个单独的检查点。只需在运行 `ai_lab_repo.py` 时传递以下参数
+**如果您丢失了进度、互联网连接中断或子任务失败，您始终可以从先前的状态加载。** 您的所有进度默认保存在 `state_saves` 变量中，该变量存储每个单独的检查点。只需在运行 `ai_lab/main.py` 时传递以下参数
 
-`python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"`
+`python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"`
 
 -----
 
@@ -131,7 +131,7 @@ task_notes_LLM = [
 
 例如，如果您使用中文运行：
 
-`python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"`
+`python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"`
 
 ----
 

@@ -67,12 +67,12 @@
 
 5. **اکنون آزمایشگاه ایجنت ها را اجرا کنید!**
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
     ```
 
     یا اگر pdflatex نصب نکرده‌اید:
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
     ```
 
 -----
@@ -84,7 +84,7 @@
 
 این همچنین فرصت شماست تا به ایجنت ها اطلاع دهید **به چه منابع محاسباتی دسترسی دارد**، مثلاً GPUها (تعداد، نوع GPU، میزان GB)، CPUها (تعداد هسته، نوع CPUها)، محدودیت‌های ذخیره‌سازی، و مشخصات سخت‌افزاری.
 
-برای افزودن یادداشت‌ها، باید ساختار task_notes_LLM را در داخل ai_lab_repo.py تغییر دهید. در زیر نمونه‌ای از مجموعه یادداشت‌هایی که برای برخی از آزمایش‌های ما استفاده شده است ارائه شده است.
+برای افزودن یادداشت‌ها، باید ساختار task_notes_LLM را در داخل ai_lab/main.py تغییر دهید. در زیر نمونه‌ای از مجموعه یادداشت‌هایی که برای برخی از آزمایش‌های ما استفاده شده است ارائه شده است.
 
 ```python
 task_notes_LLM = [
@@ -125,10 +125,10 @@ task_notes_LLM = [
 
 #### [نکته #3] ✅ می‌توانید ذخیره‌های قبلی را از نقاط بازگشت بارگذاری کنید ✅
 
-**اگر پیشرفت خود را از دست دادید، اتصال اینترنت قطع شد، یا یک زیروظیفه شکست خورد، همیشه می‌توانید از وضعیت قبلی بارگذاری کنید.** تمام پیشرفت‌های شما به طور پیش‌فرض در متغیر state_saves ذخیره می‌شوند که هر نقطه بازگشت را ذخیره می‌کند. فقط هنگام اجرای ai_lab_repo.py از آرگومان‌های زیر استفاده کنید:
+**اگر پیشرفت خود را از دست دادید، اتصال اینترنت قطع شد، یا یک زیروظیفه شکست خورد، همیشه می‌توانید از وضعیت قبلی بارگذاری کنید.** تمام پیشرفت‌های شما به طور پیش‌فرض در متغیر state_saves ذخیره می‌شوند که هر نقطه بازگشت را ذخیره می‌کند. فقط هنگام اجرای ai_lab/main.py از آرگومان‌های زیر استفاده کنید:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -140,7 +140,7 @@ python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH I
 برای مثال، اگر به زبان چینی اجرا می‌کنید:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

@@ -71,13 +71,13 @@
 5. **¡Ahora ejecuta Agent Laboratory!**
     
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
     ```
     
     o, si no tienes pdflatex instalado
     
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
     ```
 
 -----
@@ -90,7 +90,7 @@
 
 Esta también es tu oportunidad para informar al agente **a qué recursos computacionales tiene acceso**, por ejemplo, GPUs (cuántas, qué tipo de GPU, cuántos GB), CPUs (cuántos núcleos, qué tipo de CPUs), limitaciones de almacenamiento y especificaciones de hardware.
 
-Para agregar notas, debes modificar la estructura `task_notes_LLM` dentro de `ai_lab_repo.py`. A continuación se proporciona un ejemplo de conjunto de notas utilizadas en algunos de nuestros experimentos.
+Para agregar notas, debes modificar la estructura `task_notes_LLM` dentro de `ai_lab/main.py`. A continuación se proporciona un ejemplo de conjunto de notas utilizadas en algunos de nuestros experimentos.
 
 ```python
 task_notes_LLM = [
@@ -131,10 +131,10 @@ Cuando los recursos son limitados, **optimiza ajustando finamente modelos más p
 
 #### [Consejo #3] ✅ Puedes cargar guardados anteriores desde puntos de control ✅
 
-**Si pierdes progreso, la conexión a internet o si una subtarea falla, siempre puedes cargar desde un estado anterior.** Todo tu progreso se guarda por defecto en la variable `state_saves`, que almacena cada punto de control individual. Simplemente pasa los siguientes argumentos al ejecutar `ai_lab_repo.py`
+**Si pierdes progreso, la conexión a internet o si una subtarea falla, siempre puedes cargar desde un estado anterior.** Todo tu progreso se guarda por defecto en la variable `state_saves`, que almacena cada punto de control individual. Simplemente pasa los siguientes argumentos al ejecutar `ai_lab/main.py`
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -146,7 +146,7 @@ Si estás ejecutando Agent Laboratory en un idioma que no sea inglés, no hay pr
 Por ejemplo, si estás ejecutando en chino:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

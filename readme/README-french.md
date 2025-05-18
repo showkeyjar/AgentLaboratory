@@ -64,13 +64,13 @@
 
 5. **Lancez maintenant le Laboratoire d'Agent !**
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "VOTRE IDÉE DE RECHERCHE"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "VOTRE IDÉE DE RECHERCHE"
     ```
 
     ou, si vous n'avez pas installé pdflatex
 
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "VOTRE IDÉE DE RECHERCHE" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "VOTRE IDÉE DE RECHERCHE" --compile_latex=False
     ```
 
 -----
@@ -82,7 +82,7 @@
 
 C'est également votre opportunité d'informer l'agent **quelles ressources informatiques il peut utiliser**, par exemple les GPU (combien, quel type de GPU, combien de Go), les CPU (combien de cœurs, quel type de CPU), les limitations de stockage et les spécifications matérielles.
 
-Pour ajouter des notes, vous devez modifier la structure `task_notes_LLM` à l'intérieur de `ai_lab_repo.py`. Ci-dessous, un exemple de jeu de notes utilisé pour certaines de nos expériences.
+Pour ajouter des notes, vous devez modifier la structure `task_notes_LLM` à l'intérieur de `ai_lab/main.py`. Ci-dessous, un exemple de jeu de notes utilisé pour certaines de nos expériences.
 
 ```python
 task_notes_LLM = [
@@ -123,10 +123,10 @@ Lorsque les ressources sont limitées, **optimisez en affinant des modèles plus
 
 #### [Conseil n°3] ✅ Vous pouvez charger des sauvegardes précédentes depuis des points de contrôle ✅
 
-**Si vous perdez des progrès, la connexion Internet ou si une sous-tâche échoue, vous pouvez toujours charger à partir d'un état précédent.** Tous vos progrès sont enregistrés par défaut dans la variable `state_saves`, qui stocke chaque point de contrôle individuel. Il vous suffit de passer les arguments suivants lors de l'exécution de `ai_lab_repo.py`
+**Si vous perdez des progrès, la connexion Internet ou si une sous-tâche échoue, vous pouvez toujours charger à partir d'un état précédent.** Tous vos progrès sont enregistrés par défaut dans la variable `state_saves`, qui stocke chaque point de contrôle individuel. Il vous suffit de passer les arguments suivants lors de l'exécution de `ai_lab/main.py`
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -138,7 +138,7 @@ Si vous exécutez le Laboratoire d'Agent dans une langue autre que l'anglais, pa
 Par exemple, si vous utilisez le chinois :
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

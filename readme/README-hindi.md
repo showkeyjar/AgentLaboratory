@@ -63,11 +63,11 @@
 
 5. **अब Agent Laboratory चलाएं!**
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
     ```
     या, यदि आपने pdflatex स्थापित नहीं किया है:
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
     ```
 
 -----
@@ -79,7 +79,7 @@
 
 यह आपका अवसर भी है कि एजेंट को बताएं **कौन से कंप्यूट संसाधनों तक उसकी पहुंच है**, जैसे GPUs (कितने, किस प्रकार के GPU, कितने GBs), CPUs (कितने कोर, किस प्रकार के CPUs), स्टोरेज सीमाएँ, और हार्डवेयर स्पेसिफिकेशन।
 
-नोट्स जोड़ने के लिए, आपको ai_lab_repo.py के अंदर task_notes_LLM संरचना को संशोधित करना होगा। नीचे हमारे कुछ प्रयोगों के लिए उपयोग किए गए नोट्स का एक उदाहरण दिया गया है।
+नोट्स जोड़ने के लिए, आपको ai_lab/main.py के अंदर task_notes_LLM संरचना को संशोधित करना होगा। नीचे हमारे कुछ प्रयोगों के लिए उपयोग किए गए नोट्स का एक उदाहरण दिया गया है।
 
 ```python
 task_notes_LLM = [
@@ -120,9 +120,9 @@ task_notes_LLM = [
 
 #### [सुझाव #3] ✅ आप चेकपॉइंट से पिछले सहेजनों को लोड कर सकते हैं ✅
 
-**यदि आप प्रगति खो देते हैं, इंटरनेट कनेक्शन खोते हैं, या कोई उपकार्य विफल हो जाता है, तो आप हमेशा पिछले स्थिति से लोड कर सकते हैं।** आपकी सभी प्रगति डिफ़ॉल्ट रूप से state_saves वेरिएबल में सहेजी जाती है, जो प्रत्येक व्यक्तिगत चेकपॉइंट को संग्रहीत करता है। बस ai_lab_repo.py चलाते समय निम्नलिखित तर्क पास करें:
+**यदि आप प्रगति खो देते हैं, इंटरनेट कनेक्शन खोते हैं, या कोई उपकार्य विफल हो जाता है, तो आप हमेशा पिछले स्थिति से लोड कर सकते हैं।** आपकी सभी प्रगति डिफ़ॉल्ट रूप से state_saves वेरिएबल में सहेजी जाती है, जो प्रत्येक व्यक्तिगत चेकपॉइंट को संग्रहीत करता है। बस ai_lab/main.py चलाते समय निम्नलिखित तर्क पास करें:
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -133,7 +133,7 @@ python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH I
 
 उदाहरण के लिए, यदि आप चीनी में चला रहे हैं:
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

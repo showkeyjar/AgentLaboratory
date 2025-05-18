@@ -63,11 +63,11 @@
 
 5. **এখন এজেন্ট ল্যাবরেটরি চালান!**
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
     ```
     অথবা, যদি আপনি pdflatex ইনস্টল না করে থাকেন
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
     ```
 
 -----
@@ -80,7 +80,7 @@
 
 এটি এছাড়াও আপনার সুযোগ আপনার এজেন্টকে জানানোর **কোন কম্পিউট সম্পদগুলিতে এটি প্রবেশাধিকার রয়েছে**, উদাহরণস্বরূপ, GPUs (কতগুলো, কোন ধরণের GPU, কতগুলো GB), CPUs (কতগুলো কোর, কোন ধরণের CPU), স্টোরেজ সীমাবদ্ধতা, এবং হার্ডওয়্যার স্পেসিফিকেশন।
 
-নোট যুক্ত করার জন্য, আপনাকে ai_lab_repo.py এর ভিতরে task_notes_LLM গঠনটি পরিবর্তন করতে হবে। নীচে কিছু পরীক্ষার জন্য ব্যবহৃত নোটগুলির একটি উদাহরণ দেওয়া হল।
+নোট যুক্ত করার জন্য, আপনাকে ai_lab/main.py এর ভিতরে task_notes_LLM গঠনটি পরিবর্তন করতে হবে। নীচে কিছু পরীক্ষার জন্য ব্যবহৃত নোটগুলির একটি উদাহরণ দেওয়া হল।
 
 ```python
 task_notes_LLM = [
@@ -121,10 +121,10 @@ task_notes_LLM = [
 
 #### [টিপ #৩] ✅ আপনি চেকপয়েন্টগুলি থেকে পূর্ববর্তী সেভগুলি লোড করতে পারেন ✅
 
-**যদি আপনি অগ্রগতি হারান, ইন্টারনেট সংযোগ হারান, বা যদি একটি উপ-কাজ ব্যর্থ হয়, তবে আপনি সর্বদা পূর্ববর্তী অবস্থান থেকে লোড করতে পারেন।** আপনার সমস্ত অগ্রগতি ডিফল্টভাবে state_saves ভেরিয়েবলে সংরক্ষিত থাকে, যা প্রতিটি পৃথক চেকপয়েন্ট সংরক্ষণ করে। ai_lab_repo.py চালানোর সময় কেবল নিম্নলিখিত আর্গুমেন্টগুলি প্রদান করুন
+**যদি আপনি অগ্রগতি হারান, ইন্টারনেট সংযোগ হারান, বা যদি একটি উপ-কাজ ব্যর্থ হয়, তবে আপনি সর্বদা পূর্ববর্তী অবস্থান থেকে লোড করতে পারেন।** আপনার সমস্ত অগ্রগতি ডিফল্টভাবে state_saves ভেরিয়েবলে সংরক্ষিত থাকে, যা প্রতিটি পৃথক চেকপয়েন্ট সংরক্ষণ করে। ai_lab/main.py চালানোর সময় কেবল নিম্নলিখিত আর্গুমেন্টগুলি প্রদান করুন
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -136,7 +136,7 @@ python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH I
 উদাহরণস্বরূপ, আপনি যদি চীনা ভাষায় চালাচ্ছেন:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----
