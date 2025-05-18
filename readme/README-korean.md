@@ -70,13 +70,13 @@
 5. **이제 Agent Laboratory를 실행하세요!**
     
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
     ```
     
     또는, pdflatex가 설치되어 있지 않은 경우
     
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
     ```
 
 -----
@@ -88,7 +88,7 @@
 
 또한, **에이전트가 접근할 수 있는 컴퓨팅 자원**을 알려줄 수 있는 기회이기도 합니다. 예를 들어 GPU (몇 개, 어떤 유형의 GPU, GB 수), CPU (코어 수, CPU 유형), 저장 한계 및 하드웨어 사양 등을 포함할 수 있습니다.
 
-노트를 추가하려면, ai_lab_repo.py 내부의 `task_notes_LLM` 구조를 수정해야 합니다. 아래는 일부 실험에 사용된 노트의 예시입니다.
+노트를 추가하려면, ai_lab/main.py 내부의 `task_notes_LLM` 구조를 수정해야 합니다. 아래는 일부 실험에 사용된 노트의 예시입니다.
 
 ```python
 task_notes_LLM = [
@@ -129,10 +129,10 @@ task_notes_LLM = [
 
 #### [팁 #3] ✅ 체크포인트에서 이전 저장 상태를 불러올 수 있습니다 ✅
 
-**진행 상황을 잃었거나 인터넷 연결이 끊기거나 하위 작업이 실패한 경우, 이전 상태에서 항상 불러올 수 있습니다.** 모든 진행 상황은 기본적으로 `state_saves` 변수에 저장되며, 이는 각 개별 체크포인트를 저장합니다. ai_lab_repo.py를 실행할 때 다음 인수를 전달하면 됩니다.
+**진행 상황을 잃었거나 인터넷 연결이 끊기거나 하위 작업이 실패한 경우, 이전 상태에서 항상 불러올 수 있습니다.** 모든 진행 상황은 기본적으로 `state_saves` 변수에 저장되며, 이는 각 개별 체크포인트를 저장합니다. ai_lab/main.py를 실행할 때 다음 인수를 전달하면 됩니다.
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -144,7 +144,7 @@ Agent Laboratory를 영어가 아닌 다른 언어로 실행하는 경우, 문�
 예를 들어, 중국어로 실행하는 경우:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

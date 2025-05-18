@@ -69,12 +69,12 @@
 
 5. **الآن قم بتشغيل مختبر الوكيل!**
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
     ```
 
     أو، إذا لم يكن لديك pdflatex مثبتًا
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
     ```
 
 -----
@@ -86,7 +86,7 @@
 
 هذه أيضًا فرصتك لإعلام الوكيل **بالموارد الحاسوبية التي يمكنه الوصول إليها**، مثل وحدات معالجة الرسومات (عددها، نوعها، حجم الذاكرة)، وحدات المعالجة المركزية (عدد النوى، نوعها)، قيود التخزين، ومواصفات الأجهزة.
 
-لإضافة ملاحظات، يجب تعديل هيكل task_notes_LLM داخل ملف ai_lab_repo.py. فيما يلي مثال على مجموعة من الملاحظات المستخدمة لبعض تجاربنا.
+لإضافة ملاحظات، يجب تعديل هيكل task_notes_LLM داخل ملف ai_lab/main.py. فيما يلي مثال على مجموعة من الملاحظات المستخدمة لبعض تجاربنا.
 
 ```python
 task_notes_LLM = [
@@ -127,10 +127,10 @@ task_notes_LLM = [
 
 #### [نصيحة #3] ✅ يمكنك تحميل الحفظات السابقة من نقاط التفتيش ✅
 
-**إذا فقدت تقدمك، أو انقطعت اتصال الإنترنت، أو فشلت مهمة فرعية، يمكنك دائمًا التحميل من حالة سابقة.** يتم حفظ كل تقدمك افتراضيًا في متغير state_saves، الذي يخزن كل نقطة تفتيش فردية. فقط مرر الحجج التالية عند تشغيل ai_lab_repo.py
+**إذا فقدت تقدمك، أو انقطعت اتصال الإنترنت، أو فشلت مهمة فرعية، يمكنك دائمًا التحميل من حالة سابقة.** يتم حفظ كل تقدمك افتراضيًا في متغير state_saves، الذي يخزن كل نقطة تفتيش فردية. فقط مرر الحجج التالية عند تشغيل ai_lab/main.py
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -142,7 +142,7 @@ python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH I
 على سبيل المثال، إذا كنت تعمل بالصينية:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

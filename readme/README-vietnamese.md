@@ -66,13 +66,13 @@
 5. **Bây giờ chạy Agent Laboratory!**
     
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
     ```
 
     hoặc, nếu bạn không cài đặt pdflatex
 
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
     ```
 
 -----
@@ -86,7 +86,7 @@
 
 Đây cũng là cơ hội của bạn để cho đại diện biết **các tài nguyên tính toán mà nó có quyền truy cập**, ví dụ: GPU (số lượng, loại GPU, số GB), CPU (số lượng lõi, loại CPU), hạn chế về lưu trữ, và các thông số phần cứng.
 
-Để thêm ghi chú, bạn phải sửa cấu trúc task_notes_LLM bên trong ai_lab_repo.py. Dưới đây là một ví dụ về bộ ghi chú được sử dụng cho một số thí nghiệm của chúng tôi. 
+Để thêm ghi chú, bạn phải sửa cấu trúc task_notes_LLM bên trong ai_lab/main.py. Dưới đây là một ví dụ về bộ ghi chú được sử dụng cho một số thí nghiệm của chúng tôi. 
 
 
 ```python
@@ -128,10 +128,10 @@ Khi tài nguyên hạn chế, **tối ưu hóa bằng cách tinh chỉnh các m�
 
 #### [Mẹo #3] ✅ Bạn có thể tải lại các lưu trạng thái trước từ các điểm kiểm tra ✅
 
-**Nếu bạn mất tiến độ, kết nối internet, hoặc nếu một nhiệm vụ phụ thất bại, bạn luôn có thể tải lại từ trạng thái trước đó.** Tất cả tiến độ của bạn được lưu mặc định trong biến state_saves, lưu trữ từng điểm kiểm tra riêng lẻ. Chỉ cần truyền các tham số sau khi chạy ai_lab_repo.py
+**Nếu bạn mất tiến độ, kết nối internet, hoặc nếu một nhiệm vụ phụ thất bại, bạn luôn có thể tải lại từ trạng thái trước đó.** Tất cả tiến độ của bạn được lưu mặc định trong biến state_saves, lưu trữ từng điểm kiểm tra riêng lẻ. Chỉ cần truyền các tham số sau khi chạy ai_lab/main.py
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -143,7 +143,7 @@ Nếu bạn đang chạy Agent Laboratory bằng ngôn ngữ khác tiếng Anh, 
 Ví dụ, nếu bạn đang chạy bằng tiếng Trung:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

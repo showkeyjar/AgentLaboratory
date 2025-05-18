@@ -64,13 +64,13 @@
 
 5. **Şimdi Agent Laboratuvarı'nı Çalıştırın!**
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
     ```
 
     veya, pdflatex yüklü değilse
 
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
     ```
 
 -----
@@ -82,7 +82,7 @@
 
 Ayrıca, ajana **erişebileceği hesaplama kaynaklarını** bildirmeniz için bir fırsattır, örneğin GPU'lar (kaç tane, hangi tür GPU, kaç GB), CPU'lar (kaç çekirdek, hangi tür CPU'lar), depolama sınırlamaları ve donanım özellikleri.
 
-Not eklemek için, ai_lab_repo.py içindeki task_notes_LLM yapısını değiştirmeniz gerekir. Aşağıda, bazı deneylerimizde kullanılan örnek notlar verilmiştir.
+Not eklemek için, ai_lab/main.py içindeki task_notes_LLM yapısını değiştirmeniz gerekir. Aşağıda, bazı deneylerimizde kullanılan örnek notlar verilmiştir.
 
 ```python
 task_notes_LLM = [
@@ -123,10 +123,10 @@ Kaynaklar sınırlı olduğunda, **daha küçük modelleri özel veri setinizde 
 
 #### [İpucu #3] ✅ Önceki Kontrol Noktalarından Kaydedilenleri Yükleyebilirsiniz ✅
 
-**İlerlemenizi kaybederseniz, internet bağlantınız kesilirse veya bir alt görev başarısız olursa, her zaman önceki bir durumdan yükleme yapabilirsiniz.** Tüm ilerlemeniz varsayılan olarak her bir kontrol noktasını saklayan state_saves değişkeninde kaydedilir. ai_lab_repo.py çalıştırılırken aşağıdaki argümanları geçmeniz yeterlidir:
+**İlerlemenizi kaybederseniz, internet bağlantınız kesilirse veya bir alt görev başarısız olursa, her zaman önceki bir durumdan yükleme yapabilirsiniz.** Tüm ilerlemeniz varsayılan olarak her bir kontrol noktasını saklayan state_saves değişkeninde kaydedilir. ai_lab/main.py çalıştırılırken aşağıdaki argümanları geçmeniz yeterlidir:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -138,7 +138,7 @@ Agent Laboratuvarı'nı İngilizce dışında bir dilde çalıştırıyorsanız 
 Örneğin, Çincede çalıştırıyorsanız:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

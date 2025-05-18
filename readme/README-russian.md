@@ -65,13 +65,13 @@
 5. **Теперь запустите Лабораторию Агентов!**
 
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "ВАША ИССЛЕДОВАТЕЛЬСКАЯ ИДЕЯ"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "ВАША ИССЛЕДОВАТЕЛЬСКАЯ ИДЕЯ"
     ```
 
     или, если у вас не установлен pdflatex
 
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "ВАША ИССЛЕДОВАТЕЛЬСКАЯ ИДЕЯ" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "ВАША ИССЛЕДОВАТЕЛЬСКАЯ ИДЕЯ" --compile_latex=False
     ```
 
 -----
@@ -84,7 +84,7 @@
 
 Это также ваша возможность сообщить агенту, **какие вычислительные ресурсы у него есть**, например, GPU (сколько, какой тип GPU, сколько GB), CPU (сколько ядер, какой тип CPU), ограничения по памяти и спецификации оборудования.
 
-Чтобы добавить заметки, необходимо изменить структуру task_notes_LLM внутри файла ai_lab_repo.py. Ниже приведен пример набора заметок, использованных в некоторых наших экспериментах.
+Чтобы добавить заметки, необходимо изменить структуру task_notes_LLM внутри файла ai_lab/main.py. Ниже приведен пример набора заметок, использованных в некоторых наших экспериментах.
 
 ```python
 task_notes_LLM = [
@@ -125,10 +125,10 @@ task_notes_LLM = [
 
 #### [Совет №3] ✅ Вы можете загрузить предыдущие сохранения из контрольных точек ✅
 
-**Если вы потеряете прогресс, потеряете интернет-соединение или если подзадача завершится неудачей, вы всегда можете загрузить предыдущую версию.** Весь ваш прогресс сохраняется по умолчанию в переменной state_saves, которая хранит каждую отдельную контрольную точку. Просто передайте следующие аргументы при запуске ai_lab_repo.py
+**Если вы потеряете прогресс, потеряете интернет-соединение или если подзадача завершится неудачей, вы всегда можете загрузить предыдущую версию.** Весь ваш прогресс сохраняется по умолчанию в переменной state_saves, которая хранит каждую отдельную контрольную точку. Просто передайте следующие аргументы при запуске ai_lab/main.py
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "ВАША ИССЛЕДОВАТЕЛЬСКАЯ ИДЕЯ" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "ВАША ИССЛЕДОВАТЕЛЬСКАЯ ИДЕЯ" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -140,7 +140,7 @@ python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "ВАША ИСС
 Например, если вы работаете на китайском языке:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "ВАША ИССЛЕДОВАТЕЛЬСКАЯ ИДЕЯ (на вашем языке)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "ВАША ИССЛЕДОВАТЕЛЬСКАЯ ИДЕЯ (на вашем языке)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

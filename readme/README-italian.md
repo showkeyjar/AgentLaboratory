@@ -62,11 +62,11 @@
 
 5. **Ora esegui Agent Laboratory!**
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
     ```
     oppure, se non hai installato pdflatex
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
     ```
 
 -----
@@ -79,7 +79,7 @@
 
 Questa è anche la tua opportunità di far sapere all'agente **a quali risorse computazionali ha accesso**, ad esempio GPU (quante, che tipo di GPU, quanti GB), CPU (quanti core, che tipo di CPU), limitazioni di archiviazione e specifiche hardware.
 
-Per aggiungere appunti, devi modificare la struttura task_notes_LLM all'interno di ai_lab_repo.py. Di seguito è fornito un esempio di set di appunti utilizzati per alcuni dei nostri esperimenti.
+Per aggiungere appunti, devi modificare la struttura task_notes_LLM all'interno di ai_lab/main.py. Di seguito è fornito un esempio di set di appunti utilizzati per alcuni dei nostri esperimenti.
 
 ```python
 task_notes_LLM = [
@@ -120,10 +120,10 @@ Quando le risorse sono limitate, **ottimizza effettuando il fine-tuning di model
 
 #### [Consiglio #3] ✅ Puoi caricare salvataggi precedenti dai checkpoint ✅
 
-**Se perdi i progressi, la connessione a internet o se un sotto-compito fallisce, puoi sempre caricare da uno stato precedente.** Tutti i tuoi progressi vengono salvati di default nella variabile state_saves, che memorizza ogni singolo checkpoint. Basta passare i seguenti argomenti quando esegui ai_lab_repo.py
+**Se perdi i progressi, la connessione a internet o se un sotto-compito fallisce, puoi sempre caricare da uno stato precedente.** Tutti i tuoi progressi vengono salvati di default nella variabile state_saves, che memorizza ogni singolo checkpoint. Basta passare i seguenti argomenti quando esegui ai_lab/main.py
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -135,7 +135,7 @@ Se stai utilizzando Agent Laboratory in una lingua diversa dall'inglese, nessun 
 Ad esempio, se stai utilizzando in cinese:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

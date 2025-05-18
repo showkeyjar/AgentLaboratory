@@ -64,12 +64,12 @@
 
 5. **Teraz spustite Agent Laboratory!**
    ```bash
-   python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+   python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
    ```
    
    alebo, ak nemáte nainštalovaný pdflatex
    ```bash
-   python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+   python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
    ```
 
 -----
@@ -81,7 +81,7 @@
 
 Je to tiež vaša príležitosť informovať agenta, **aké výpočtové zdroje má k dispozícii**, napr. GPU (koľko, aký typ GPU, koľko GB), CPU (koľko jadier, aký typ CPU), obmedzenia úložiska a hardvérové špecifikácie.
 
-Aby ste pridali poznámky, musíte upraviť štruktúru `task_notes_LLM` v súbore `ai_lab_repo.py`. Nižšie je uvedený príklad sady poznámok použitých pre niektoré naše experimenty.
+Aby ste pridali poznámky, musíte upraviť štruktúru `task_notes_LLM` v súbore `ai_lab/main.py`. Nižšie je uvedený príklad sady poznámok použitých pre niektoré naše experimenty.
 
 ```python
 task_notes_LLM = [
@@ -122,10 +122,10 @@ Keď sú zdroje obmedzené, **optimalizujte jemným ladením menších modelov**
 
 #### [Tip #3] ✅ Môžete načítať predchádzajúce uloženia z kontrolných bodov ✅
 
-**Ak stratíte postup, internetové pripojenie alebo ak sa podúloha nepodarí, môžete vždy načítať z predchádzajúceho stavu.** Všetok váš postup je predvolene uložený v premennej `state_saves`, ktorá ukladá každý jednotlivý kontrolný bod. Stačí pri spúšťaní `ai_lab_repo.py` zadať nasledujúce argumenty:
+**Ak stratíte postup, internetové pripojenie alebo ak sa podúloha nepodarí, môžete vždy načítať z predchádzajúceho stavu.** Všetok váš postup je predvolene uložený v premennej `state_saves`, ktorá ukladá každý jednotlivý kontrolný bod. Stačí pri spúšťaní `ai_lab/main.py` zadať nasledujúce argumenty:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -137,7 +137,7 @@ Ak spúšťate Agent Laboratory v inom jazyku než v angličtine, nie je problé
 Napríklad, ak pracujete v čínštine:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----

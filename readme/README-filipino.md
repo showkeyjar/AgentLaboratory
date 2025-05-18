@@ -64,11 +64,11 @@
 
 5. **Ngayon patakbuhin ang Agent Laboratory!**
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA"
     ```
     o, kung wala kang naka-install na pdflatex
     ```bash
-    python ai_lab_repo.py --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
+    python -m ai_lab --api-key "API_KEY_HERE" --llm-backend "o1-mini" --research-topic "YOUR RESEARCH IDEA" --compile_latex=False
     ```
 
 -----
@@ -81,7 +81,7 @@
 
 Ito rin ang iyong pagkakataon upang ipaalam sa ahente **kung anong mga compute resources ang mayroon ito**, halimbawa, GPUs (ilan, anong uri ng GPU, ilang GBs), CPUs (ilang cores, anong uri ng CPUs), mga limitasyon sa storage, at mga specs ng hardware.
 
-Upang magdagdag ng mga tala, kailangan mong baguhin ang `task_notes_LLM` na istraktura sa loob ng `ai_lab_repo.py`. Ibinigay sa ibaba ang isang halimbawa ng mga tala na ginamit para sa ilan sa aming mga eksperimento.
+Upang magdagdag ng mga tala, kailangan mong baguhin ang `task_notes_LLM` na istraktura sa loob ng `ai_lab/main.py`. Ibinigay sa ibaba ang isang halimbawa ng mga tala na ginamit para sa ilan sa aming mga eksperimento.
 
 ```python
 task_notes_LLM = [
@@ -122,10 +122,10 @@ Kapag limitado ang mga mapagkukunan, **i-optimize sa pamamagitan ng fine-tuning 
 
 #### [Tip #3] ✅ Maaari kang mag-load ng mga naunang save mula sa mga checkpoint ✅
 
-**Kung mawalan ka ng progreso, koneksyon sa internet, o kung mabigo ang isang subtask, maaari mong laging i-load mula sa isang naunang estado.** Ang lahat ng iyong progreso ay naka-save bilang default sa `state_saves` variable, na nag-iimbak ng bawat indibidwal na checkpoint. Ibigay lamang ang mga sumusunod na argumento kapag nagpapatakbo ng `ai_lab_repo.py`:
+**Kung mawalan ka ng progreso, koneksyon sa internet, o kung mabigo ang isang subtask, maaari mong laging i-load mula sa isang naunang estado.** Ang lahat ng iyong progreso ay naka-save bilang default sa `state_saves` variable, na nag-iimbak ng bawat indibidwal na checkpoint. Ibigay lamang ang mga sumusunod na argumento kapag nagpapatakbo ng `ai_lab/main.py`:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA" --llm-backend "o1-mini" --load-existing True --load-existing-path "save_states/LOAD_PATH"
 ```
 
 -----
@@ -137,7 +137,7 @@ Kung nagpapatakbo ka ng Agent Laboratory sa isang wika maliban sa Ingles, walang
 Halimbawa, kung nagpapatakbo ka sa Chinese:
 
 ```bash
-python ai_lab_repo.py --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
+python -m ai_lab --api-key "API_KEY_HERE" --research-topic "YOUR RESEARCH IDEA (in your language)" --llm-backend "o1-mini" --language "中文"
 ```
 
 ----
