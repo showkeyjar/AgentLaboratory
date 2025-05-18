@@ -87,6 +87,20 @@ Run the package entry point instead:
 `python -m ai_lab --yaml-location "experiment_configs/MATH_agentlab.yaml"`
 
 
+### `ai_lab_repo.py` moved
+
+The original entry script `ai_lab_repo.py` now lives inside the `ai_lab` package.
+Start the project with the module invocation instead:
+
+```bash
+python -m ai_lab --yaml-location "experiment_configs/MATH_agentlab.yaml"
+```
+
+For backward compatibility, a thin wrapper named `ai_lab_repo.py` remains at the
+repository root. It imports and executes `ai_lab.__main__` while printing a
+deprecation warning. This wrapper will be removed after **July&nbsp;2025**.
+
+
 ### Co-Pilot mode
 
 To run Agent Laboratory in copilot mode, simply set the copilot-mode flag in your yaml config to `"true"`
