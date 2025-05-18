@@ -7,7 +7,7 @@ class EmptyStr:
         return []
 
 def load_arxiv():
-    source = Path('papersolver.py').read_text()
+    source = Path('papersolver/commands.py').read_text()
     match = re.search(r'class Arxiv\(Command\):(.*?)(?=class PaperReplace)', source, re.S)
     code = match.group(0)
     class Command:
