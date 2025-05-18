@@ -659,10 +659,12 @@ class AgentRxiv:
 def parse_arguments():
     parser = argparse.ArgumentParser(description="AgentLaboratory Research Workflow")
 
+    default_yaml = Path(__file__).resolve().parent.parent / "experiment_configs" / "MATH_agentlab.yaml"
+
     parser.add_argument(
         '--yaml-location',
         type=str,
-        default="experiment_configs/MATH_agentlab.yaml",
+        default=str(default_yaml),
         help='Location of YAML to load config data.'
     )
 
@@ -670,7 +672,11 @@ def parse_arguments():
 
 
 def parse_yaml(yaml_file_loc):
-    with open(yaml_file_loc, 'r') as file: agentlab_data = yaml.safe_load(file)
+    yaml_path = Path(yaml_file_loc)
+    if not yaml_path.is_absolute():
+        yaml_path = Path(__file__).resolve().parent.parent / yaml_path
+    with open(yaml_path, 'r') as file:
+        agentlab_data = yaml.safe_load(file)
     class YamlDataHolder:
         def __init__(self): pass
     parser = YamlDataHolder()
