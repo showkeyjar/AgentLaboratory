@@ -6,6 +6,7 @@ junk/*
 huggingface_*
 junk/logs
 papers*
+!papersolver/
 hf*
 junk/data/*
 research_dir/*
