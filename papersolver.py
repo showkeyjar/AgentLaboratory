@@ -75,7 +75,7 @@ class Arxiv(Command):
         full_text = extract_prompt(args[0], "FULL_TEXT").split("\n")
         if len(sum_text) == 0 and len(full_text) == 0: return False, None
         if len(sum_text) > 0: return True, ("SUMMARY", sum_text,)
-        if len(full_text) > 0: return True, ("FULL_TEXT", sum_text,)
+        if len(full_text) > 0: return True, ("FULL_TEXT", full_text,)
 
 
 """
