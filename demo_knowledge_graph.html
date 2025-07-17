@@ -1,0 +1,54 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>知识图谱可视化</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                .graph-container { border: 1px solid #ccc; width: 800px; height: 600px; }
+                .legend { margin-top: 20px; }
+                .legend-item { display: inline-block; margin-right: 20px; }
+                .legend-color { width: 15px; height: 15px; display: inline-block; margin-right: 5px; }
+                .info-panel { margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 5px; }
+            </style>
+        </head>
+        <body>
+            <h1>学术研究知识图谱</h1>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #FF6B6B;"></span>概念
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #4ECDC4;"></span>方法
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #45B7D1;"></span>作者
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #96CEB4;"></span>发表场所
+                </div>
+            </div>
+            
+            <div class="graph-container">
+                <p>图谱可视化区域（需要D3.js或其他可视化库支持）</p>
+            </div>
+            
+            <div class="info-panel">
+                <h3>图谱统计信息</h3>
+                <p>节点数量: 54</p>
+                <p>边数量: 47</p>
+                <p>研究空白: 10</p>
+                <p>热点主题: </p>
+                <p>新兴趋势: neural networks, graph neural networks</p>
+            </div>
+            
+            <div class="info-panel">
+                <h3>主要研究空白</h3>
+                <ul>
+                    <li>概念 'reinforcement learning' 缺乏与其他重要概念的充分连接</li><li>概念 'deep learning' 缺乏与其他重要概念的充分连接</li><li>概念 'deep learning' 缺乏与其他重要概念的充分连接</li><li>方法 'natural language' 和 'reinforcement learning' 的结合应用研究不足</li><li>方法 'natural language' 和 'deep learning' 的结合应用研究不足</li>
+                </ul>
+            </div>
+        </body>
+        </html>
+        
