@@ -79,13 +79,28 @@ sudo apt install pdflatex
 - This enables latex source to be compiled by the agents.
 - **[IMPORTANT]** If this step cannot be run due to not having sudo access, pdf compiling can be turned off via running Agent Laboratory via setting the `--compile-latex` flag to false: `--compile-latex "false"`
 
+5. **配置项目**
 
+在运行项目之前，请先配置项目设置：
 
-5. **Now run Agent Laboratory!**
+```bash
+python setup.py
+```
 
-Run the package entry point instead:
-`python -m ai_lab --yaml-location "experiment_configs/MATH_agentlab.yaml"`
+您将看到一个配置向导，通过选择题的方式引导您完成配置。配置项包括：
+- 应用密钥类型
+- 上传文件夹位置
+- 数据库类型
+- 数据库修改跟踪设置
 
+配置完成后，系统会自动生成 `config.env` 文件。
+
+6. **运行 Agent Laboratory**
+
+运行项目：
+```bash
+python -m ai_lab --yaml-location "experiment_configs/MATH_agentlab.yaml"
+```
 
 ### `ai_lab_repo.py` moved
 

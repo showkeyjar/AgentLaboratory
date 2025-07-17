@@ -1,0 +1,18 @@
+project-info:
+  name: 大模型学习能力综述
+  description: 横向研究和对比大模型的学习能力，汇总成一篇大模型学习能力的综述论文
+  goal: 使用科学的评价指标给大模型的学习能力打分和排序
+environment:
+  language: English
+  model: deepseek-chat
+research-params:
+  dataset: MATH-500
+  target-metric: 准确性
+tasks:
+  literature: 是
+  experiment: 是
+  analysis: 是
+advanced:
+  parallel: 是
+  save: 是
+  debug: 是

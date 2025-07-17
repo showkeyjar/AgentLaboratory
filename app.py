@@ -9,11 +9,16 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
+from config import get_config
+
+# 读取配置
+config = get_config()
+
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key'
-app.config['UPLOAD_FOLDER'] = 'uploads/'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///papers.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key')
+app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', 'uploads/')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI', 'sqlite:///papers.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS', 'False') == 'True'
 
 db = SQLAlchemy(app)
 

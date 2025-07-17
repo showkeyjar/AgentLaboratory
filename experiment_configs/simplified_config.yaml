@@ -1,0 +1,39 @@
+# Agent Laboratory Simplified Configuration
+
+# 项目基本信息
+project-info:
+  name: "MATH Research"
+  description: "使用LLM进行MATH基准测试的研究"
+  goal: "设计推理和提示工程技术，以最大化MATH500基准测试的准确性"
+
+# 环境配置
+environment:
+  language: "中文"  # 支持自动检测和切换
+  model: "o3-mini"  # 支持自动选择最佳模型
+  compute-resources: "自动检测"  # 支持自动配置
+
+# 研究参数
+research-params:
+  dataset: "MATH-500"  # 支持自动加载
+  target-metric: "准确性"  # 支持自动优化
+  baseline: "70.2%"  # 支持自动获取
+
+# 任务配置
+tasks:
+  - name: "文献综述"
+    description: "自动进行相关文献检索和分析"
+    scope: "自动确定"
+    
+  - name: "实验设计"
+    description: "设计优化实验方案"
+    constraints: "自动推断"
+    
+  - name: "结果分析"
+    description: "分析实验结果并生成报告"
+    format: "自动选择"
+
+# 高级设置 (可选)
+advanced:
+  parallel: false  # 是否并行运行
+  save: true  # 是否保存进度
+  debug: false  # 是否开启调试模式
