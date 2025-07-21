@@ -438,3 +438,298 @@ class DynamicSearchExpander(BaseComponent):
                     expanded_strategy.time_range = suggestion.time_range_adjustment
         
         return expanded_strategy
+    
+    def _extract_emerging_concepts(self, papers: List[Paper]) -> List[str]:
+        """提取新兴概念"""
+        # 按年份分组
+        recent_papers = [p for p in papers if p.publication_year >= 2022]
+        older_papers = [p for p in papers if p.publication_year < 2022]
+        
+        # 如果没有足够的论文进行比较，直接从所有论文中提取概念
+        if not recent_papers and not older_papers:
+            all_concepts = Counter()
+            for paper in papers:
+                text = f"{paper.title} {paper.abstract} {' '.join(paper.keywords)}".lower()
+                concepts = self._extract_concepts_from_text(text)
+                for concept in concepts:
+                    all_concepts[concept] += 1
+            return [concept for concept, count in all_concepts.most_common(10) if count >= 1]
+        
+        # 统计概念频率
+        recent_concepts = Counter()
+        older_concepts = Counter()
+        
+        for paper in recent_papers:
+            text = f"{paper.title} {paper.abstract} {' '.join(paper.keywords)}".lower()
+            concepts = self._extract_concepts_from_text(text)
+            for concept in concepts:
+                recent_concepts[concept] += 1
+        
+        for paper in older_papers:
+            text = f"{paper.title} {paper.abstract} {' '.join(paper.keywords)}".lower()
+            concepts = self._extract_concepts_from_text(text)
+            for concept in concepts:
+                older_concepts[concept] += 1
+        
+        # 找到新兴概念（在近期论文中频繁出现但在旧论文中较少）
+        emerging = []
+        for concept, recent_count in recent_concepts.items():
+            older_count = older_concepts.get(concept, 0)
+            if recent_count >= 1 and (older_count == 0 or recent_count / older_count > 1.5):
+                emerging.append(concept)
+        
+        # 如果没有找到新兴概念，返回最频繁的概念
+        if not emerging:
+            all_concepts = Counter()
+            for paper in papers:
+                text = f"{paper.title} {paper.abstract} {' '.join(paper.keywords)}".lower()
+                concepts = self._extract_concepts_from_text(text)
+                for concept in concepts:
+                    all_concepts[concept] += 1
+            emerging = [concept for concept, count in all_concepts.most_common(5)]
+        
+        return emerging[:10]
+    
+    def _identify_cross_domain_connections(self, papers: List[Paper]) -> List[str]:
+        """识别跨领域连接"""
+        domain_combinations = Counter()
+        
+        for paper in papers:
+            domains = set()
+            
+            # 从研究领域中提取
+            for field in paper.research_fields:
+                domains.add(field.lower().strip())
+            
+            # 从关键词中推断领域
+            for keyword in paper.keywords:
+                keyword = keyword.lower().strip()
+                if any(domain_word in keyword for domain_word in 
+                      ['computer vision', 'nlp', 'natural language', 'robotics', 
+                       'machine learning', 'deep learning', 'reinforcement']):
+                    domains.add(keyword)
+            
+            # 记录领域组合
+            if len(domains) > 1:
+                domain_list = sorted(list(domains))
+                for i in range(len(domain_list)):
+                    for j in range(i + 1, len(domain_list)):
+                        combo = f"{domain_list[i]} + {domain_list[j]}"
+                        domain_combinations[combo] += 1
+        
+        # 返回频繁的跨领域组合
+        cross_domain = [combo for combo, count in domain_combinations.most_common(8) if count >= 2]
+        return cross_domain
+    
+    def _analyze_methodological_innovations(self, papers: List[Paper]) -> List[str]:
+        """分析方法论创新"""
+        method_patterns = [
+            r'novel\s+(?:approach|method|technique|framework)',
+            r'new\s+(?:algorithm|model|architecture)',
+            r'improved\s+(?:performance|accuracy|efficiency)',
+            r'state-of-the-art\s+(?:results|performance)',
+            r'breakthrough\s+in',
+            r'innovative\s+(?:solution|approach)',
+            r'advanced\s+(?:technique|method)'
+        ]
+        
+        innovations = Counter()
+        
+        for paper in papers:
+            text = f"{paper.title} {paper.abstract}".lower()
+            
+            for pattern in method_patterns:
+                matches = re.findall(pattern, text)
+                if matches:
+                    # 提取创新相关的上下文
+                    sentences = re.split(r'[.!?]', text)
+                    for sentence in sentences:
+                        if any(re.search(pattern, sentence) for pattern in method_patterns):
+                            # 提取关键术语
+                            terms = self._extract_key_terms(sentence)
+                            for term in terms:
+                                innovations[term] += 1
+        
+        return [term for term, count in innovations.most_common(10) if count >= 2]
+    
+    def _extract_concepts_from_text(self, text: str) -> List[str]:
+        """从文本中提取概念"""
+        # 定义概念模式
+        concept_patterns = [
+            r'(?:deep|machine|statistical|neural|reinforcement)\s+learning',
+            r'(?:computer|artificial)\s+(?:vision|intelligence)',
+            r'natural\s+language\s+processing',
+            r'(?:convolutional|recurrent|transformer)\s+neural\s+network',
+            r'(?:supervised|unsupervised|semi-supervised)\s+learning',
+            r'(?:object|image|speech)\s+(?:detection|recognition|classification)',
+            r'(?:data|text)\s+(?:mining|analysis|processing)',
+            r'(?:knowledge|information)\s+(?:extraction|retrieval)',
+            r'(?:pattern|anomaly)\s+detection',
+            r'(?:feature|representation)\s+learning'
+        ]
+        
+        concepts = []
+        for pattern in concept_patterns:
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            concepts.extend([match.lower().strip() for match in matches])
+        
+        return list(set(concepts))
+    
+    def _extract_key_terms(self, sentence: str) -> List[str]:
+        """从句子中提取关键术语"""
+        # 简化的关键术语提取
+        terms = []
+        
+        # 提取技术术语模式
+        tech_patterns = [
+            r'\b[A-Z][a-z]+(?:[A-Z][a-z]+)*\b',  # CamelCase terms
+            r'\b(?:algorithm|model|network|system|framework|approach|method)\b',
+            r'\b\w+(?:Net|GAN|BERT|GPT|CNN|RNN|LSTM|GRU)\b'
+        ]
+        
+        for pattern in tech_patterns:
+            matches = re.findall(pattern, sentence, re.IGNORECASE)
+            terms.extend([match.lower() for match in matches if len(match) > 3])
+        
+        return list(set(terms))
+    
+    def _merge_and_rank_directions(self, 
+                                 emerging_concepts: List[str],
+                                 cross_domain: List[str], 
+                                 innovations: List[str]) -> List[str]:
+        """合并和排序新方向"""
+        direction_scores = {}
+        
+        # 新兴概念权重
+        for concept in emerging_concepts:
+            direction_scores[concept] = direction_scores.get(concept, 0) + 3
+        
+        # 跨领域连接权重
+        for connection in cross_domain:
+            direction_scores[connection] = direction_scores.get(connection, 0) + 2
+        
+        # 方法论创新权重
+        for innovation in innovations:
+            direction_scores[innovation] = direction_scores.get(innovation, 0) + 1
+        
+        # 按分数排序
+        sorted_directions = sorted(direction_scores.items(), key=lambda x: x[1], reverse=True)
+        return [direction for direction, score in sorted_directions[:15]]
+    
+    def _calculate_coverage(self, search_result: SearchResult) -> float:
+        """计算覆盖率"""
+        if not search_result.papers:
+            return 0.0
+        
+        # 基于论文数量和多样性计算覆盖率
+        paper_count = len(search_result.papers)
+        
+        # 计算作者多样性
+        authors = set()
+        for paper in search_result.papers:
+            authors.update(paper.authors)
+        author_diversity = len(authors) / max(1, paper_count)
+        
+        # 计算场所多样性
+        venues = set(paper.journal_or_venue for paper in search_result.papers if paper.journal_or_venue)
+        venue_diversity = len(venues) / max(1, paper_count)
+        
+        # 计算时间跨度
+        years = [paper.publication_year for paper in search_result.papers if paper.publication_year > 0]
+        time_span = (max(years) - min(years) + 1) / 15.0 if years else 0  # 归一化到15年
+        
+        # 综合覆盖率
+        coverage = min(1.0, (
+            min(1.0, paper_count / 50.0) * 0.4 +  # 论文数量
+            min(1.0, author_diversity) * 0.3 +     # 作者多样性
+            min(1.0, venue_diversity) * 0.2 +      # 场所多样性
+            min(1.0, time_span) * 0.1              # 时间跨度
+        ))
+        
+        return coverage
+    
+    def _calculate_diversity(self, papers: List[Paper]) -> float:
+        """计算多样性"""
+        if not papers:
+            return 0.0
+        
+        # 计算关键词多样性
+        all_keywords = []
+        for paper in papers:
+            all_keywords.extend([kw.lower().strip() for kw in paper.keywords])
+        
+        unique_keywords = len(set(all_keywords))
+        total_keywords = len(all_keywords)
+        keyword_diversity = unique_keywords / max(1, total_keywords)
+        
+        # 计算研究领域多样性
+        all_fields = []
+        for paper in papers:
+            all_fields.extend([field.lower().strip() for field in paper.research_fields])
+        
+        unique_fields = len(set(all_fields))
+        total_fields = len(all_fields)
+        field_diversity = unique_fields / max(1, total_fields)
+        
+        return (keyword_diversity + field_diversity) / 2.0
+    
+    def _calculate_novelty(self, papers: List[Paper]) -> float:
+        """计算新颖性"""
+        if not papers:
+            return 0.0
+        
+        # 基于发表年份计算新颖性
+        current_year = datetime.now().year
+        novelty_scores = []
+        
+        for paper in papers:
+            if paper.publication_year > 0:
+                age = current_year - paper.publication_year
+                novelty = max(0, 1.0 - age / 10.0)  # 10年内的论文有新颖性
+                novelty_scores.append(novelty)
+        
+        return sum(novelty_scores) / len(novelty_scores) if novelty_scores else 0.0
+    
+    def _calculate_quality(self, papers: List[Paper]) -> float:
+        """计算质量"""
+        if not papers:
+            return 0.0
+        
+        quality_scores = []
+        for paper in papers:
+            # 基于引用数计算质量分数
+            citation_score = min(1.0, paper.citation_count / 100.0)
+            
+            # 基于发表场所质量（简化评估）
+            venue_score = 0.8 if paper.journal_or_venue else 0.5
+            
+            # 综合质量分数
+            quality = (citation_score * 0.7 + venue_score * 0.3)
+            quality_scores.append(quality)
+        
+        return sum(quality_scores) / len(quality_scores)
+    
+    def _calculate_overall_effectiveness(self, metrics: Dict[str, float]) -> float:
+        """计算综合效果分数"""
+        weights = {
+            'coverage': 0.25,
+            'relevance': 0.25,
+            'diversity': 0.20,
+            'novelty': 0.15,
+            'quality': 0.15
+        }
+        
+        overall = sum(metrics.get(key, 0) * weight for key, weight in weights.items())
+        return overall
+    
+    def get_performance_summary(self) -> Dict[str, Any]:
+        """获取性能摘要"""
+        return {
+            'total_searches': len(self.search_history),
+            'total_expansions': len(self.expansion_history),
+            'average_effectiveness': sum(
+                result.coverage_metrics.get('overall', 0) 
+                for result in self.search_history
+            ) / max(1, len(self.search_history)),
+            'performance_metrics': self.performance_metrics.copy()
+        }

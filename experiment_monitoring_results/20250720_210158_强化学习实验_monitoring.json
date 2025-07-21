@@ -1,0 +1,710 @@
+{
+  "id": "bae43749-352e-4fba-b5b1-c583fa9b42a0",
+  "created_at": "2025-07-20T21:01:58.218601",
+  "updated_at": "2025-07-20T21:01:58.218601",
+  "report_id": "report_exp_20250720_210149_20250720_210158",
+  "experiment_id": "exp_20250720_210149",
+  "report_type": "progress",
+  "timestamp": "2025-07-20T21:01:58.218601",
+  "progress": {
+    "id": "6c5ad275-f993-40e1-9fa8-3e6391138d66",
+    "created_at": "2025-07-20T21:01:49.952707",
+    "updated_at": "2025-07-20T21:01:49.952707",
+    "experiment_id": "exp_20250720_210149",
+    "experiment_name": "深度Q网络游戏AI实验",
+    "status": "ExperimentStatus.COMPLETED",
+    "start_time": "2025-07-20T21:01:49.952707",
+    "end_time": "2025-07-20T21:01:58.107180",
+    "last_update": "2025-07-20T21:01:58.107180",
+    "total_steps": 10,
+    "completed_steps": 8,
+    "current_step": "实验完成",
+    "progress_percentage": 80.0,
+    "resource_usage": {
+      "cpu": 0.4,
+      "memory": 0.3,
+      "gpu": 0.5
+    },
+    "estimated_remaining_time": null,
+    "intermediate_results": {},
+    "performance_metrics": {
+      "accuracy": 0.92,
+      "loss": 0.15,
+      "epoch": 5,
+      "val_accuracy": 0.9,
+      "test_accuracy": 0.91
+    }
+  },
+  "alerts": [
+    {
+      "id": "de300bcc-5722-4569-9ed5-f4317b508ec3",
+      "created_at": "2025-07-20T21:01:50.958359",
+      "updated_at": "2025-07-20T21:01:50.958359",
+      "alert_id": "alert_exp_20250720_210149_0",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "low_performance",
+      "level": "AlertLevel.WARNING",
+      "message": "模型性能较低: 准确率 45.00%",
+      "details": {
+        "accuracy": 0.45
+      },
+      "timestamp": "2025-07-20T21:01:50.958359",
+      "resolved": false
+    },
+    {
+      "id": "29d490b1-c145-446d-8f8c-b12eb4414253",
+      "created_at": "2025-07-20T21:01:50.959883",
+      "updated_at": "2025-07-20T21:01:50.959883",
+      "alert_id": "alert_exp_20250720_210149_1",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 84.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.84
+      },
+      "timestamp": "2025-07-20T21:01:50.959883",
+      "resolved": false
+    },
+    {
+      "id": "c9da4ce4-251a-4313-af73-0a408a18f21c",
+      "created_at": "2025-07-20T21:01:51.261676",
+      "updated_at": "2025-07-20T21:01:51.261676",
+      "alert_id": "alert_exp_20250720_210149_2",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 87.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.87
+      },
+      "timestamp": "2025-07-20T21:01:51.261676",
+      "resolved": false
+    },
+    {
+      "id": "b77a795a-5cac-4603-96ba-0f8cde94d75b",
+      "created_at": "2025-07-20T21:01:51.563711",
+      "updated_at": "2025-07-20T21:01:51.563711",
+      "alert_id": "alert_exp_20250720_210149_3",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_cpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "cpu使用率过高: 85.0%",
+      "details": {
+        "resource_type": "cpu",
+        "usage": 0.85
+      },
+      "timestamp": "2025-07-20T21:01:51.563711",
+      "resolved": false
+    },
+    {
+      "id": "11ae9ad0-b3dc-4316-be3a-d927b2267a64",
+      "created_at": "2025-07-20T21:01:51.564782",
+      "updated_at": "2025-07-20T21:01:51.564782",
+      "alert_id": "alert_exp_20250720_210149_4",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 90.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.9
+      },
+      "timestamp": "2025-07-20T21:01:51.564782",
+      "resolved": false
+    },
+    {
+      "id": "96b186fe-6293-4a0c-b3bb-db5c6958f988",
+      "created_at": "2025-07-20T21:01:51.865576",
+      "updated_at": "2025-07-20T21:01:51.865576",
+      "alert_id": "alert_exp_20250720_210149_5",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_cpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "cpu使用率过高: 90.0%",
+      "details": {
+        "resource_type": "cpu",
+        "usage": 0.9
+      },
+      "timestamp": "2025-07-20T21:01:51.865576",
+      "resolved": false
+    },
+    {
+      "id": "88c69cec-d392-4d65-8485-52931e3e838e",
+      "created_at": "2025-07-20T21:01:51.866715",
+      "updated_at": "2025-07-20T21:01:51.866715",
+      "alert_id": "alert_exp_20250720_210149_6",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 93.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.9299999999999999
+      },
+      "timestamp": "2025-07-20T21:01:51.866715",
+      "resolved": false
+    },
+    {
+      "id": "3d07e7f1-1c83-48c0-90f8-7b7f7efc0862",
+      "created_at": "2025-07-20T21:01:53.673119",
+      "updated_at": "2025-07-20T21:01:53.673119",
+      "alert_id": "alert_exp_20250720_210149_7",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "low_performance",
+      "level": "AlertLevel.WARNING",
+      "message": "模型性能较低: 准确率 45.00%",
+      "details": {
+        "accuracy": 0.45
+      },
+      "timestamp": "2025-07-20T21:01:53.673119",
+      "resolved": false
+    },
+    {
+      "id": "5d0e1300-03db-4c9a-b144-fa8743eb9646",
+      "created_at": "2025-07-20T21:01:53.675825",
+      "updated_at": "2025-07-20T21:01:53.675825",
+      "alert_id": "alert_exp_20250720_210149_8",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 84.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.84
+      },
+      "timestamp": "2025-07-20T21:01:53.675825",
+      "resolved": false
+    },
+    {
+      "id": "087a4028-3893-4a24-8f33-07184c352385",
+      "created_at": "2025-07-20T21:01:53.977728",
+      "updated_at": "2025-07-20T21:01:53.977728",
+      "alert_id": "alert_exp_20250720_210149_9",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 87.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.87
+      },
+      "timestamp": "2025-07-20T21:01:53.977728",
+      "resolved": false
+    },
+    {
+      "id": "4868c886-61f6-4eb1-affc-a2c483dc2221",
+      "created_at": "2025-07-20T21:01:54.280365",
+      "updated_at": "2025-07-20T21:01:54.280365",
+      "alert_id": "alert_exp_20250720_210149_10",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_cpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "cpu使用率过高: 85.0%",
+      "details": {
+        "resource_type": "cpu",
+        "usage": 0.85
+      },
+      "timestamp": "2025-07-20T21:01:54.280365",
+      "resolved": false
+    },
+    {
+      "id": "9f1ad6be-dcd8-4cb1-bb9f-ed409721c808",
+      "created_at": "2025-07-20T21:01:54.281411",
+      "updated_at": "2025-07-20T21:01:54.281411",
+      "alert_id": "alert_exp_20250720_210149_11",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 90.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.9
+      },
+      "timestamp": "2025-07-20T21:01:54.281411",
+      "resolved": false
+    },
+    {
+      "id": "f8a2eeca-1b9b-470e-960a-693b27d31442",
+      "created_at": "2025-07-20T21:01:54.583267",
+      "updated_at": "2025-07-20T21:01:54.583267",
+      "alert_id": "alert_exp_20250720_210149_12",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_cpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "cpu使用率过高: 90.0%",
+      "details": {
+        "resource_type": "cpu",
+        "usage": 0.9
+      },
+      "timestamp": "2025-07-20T21:01:54.583267",
+      "resolved": false
+    },
+    {
+      "id": "d7c2f061-cdee-4e5d-9382-6d69efcc29c4",
+      "created_at": "2025-07-20T21:01:54.584275",
+      "updated_at": "2025-07-20T21:01:54.584275",
+      "alert_id": "alert_exp_20250720_210149_13",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 93.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.9299999999999999
+      },
+      "timestamp": "2025-07-20T21:01:54.584275",
+      "resolved": false
+    },
+    {
+      "id": "a8b730e7-ed7d-4e58-8889-de88ccc82da6",
+      "created_at": "2025-07-20T21:01:56.392646",
+      "updated_at": "2025-07-20T21:01:56.392646",
+      "alert_id": "alert_exp_20250720_210149_14",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "low_performance",
+      "level": "AlertLevel.WARNING",
+      "message": "模型性能较低: 准确率 45.00%",
+      "details": {
+        "accuracy": 0.45
+      },
+      "timestamp": "2025-07-20T21:01:56.392646",
+      "resolved": false
+    },
+    {
+      "id": "feff7566-22bc-4d9b-afc3-04034650cc00",
+      "created_at": "2025-07-20T21:01:56.394358",
+      "updated_at": "2025-07-20T21:01:56.394358",
+      "alert_id": "alert_exp_20250720_210149_15",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 84.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.84
+      },
+      "timestamp": "2025-07-20T21:01:56.394358",
+      "resolved": false
+    },
+    {
+      "id": "ddaea04e-7df1-4908-b2ab-13a6d9675d2d",
+      "created_at": "2025-07-20T21:01:56.695805",
+      "updated_at": "2025-07-20T21:01:56.695805",
+      "alert_id": "alert_exp_20250720_210149_16",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 87.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.87
+      },
+      "timestamp": "2025-07-20T21:01:56.695805",
+      "resolved": false
+    },
+    {
+      "id": "f051c1ef-e981-4285-9aaa-b423dabcd42d",
+      "created_at": "2025-07-20T21:01:56.998362",
+      "updated_at": "2025-07-20T21:01:56.998362",
+      "alert_id": "alert_exp_20250720_210149_17",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_cpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "cpu使用率过高: 85.0%",
+      "details": {
+        "resource_type": "cpu",
+        "usage": 0.85
+      },
+      "timestamp": "2025-07-20T21:01:56.998362",
+      "resolved": false
+    },
+    {
+      "id": "190957ba-dd43-4760-ac47-7828dfef9b37",
+      "created_at": "2025-07-20T21:01:57.000008",
+      "updated_at": "2025-07-20T21:01:57.000008",
+      "alert_id": "alert_exp_20250720_210149_18",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 90.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.9
+      },
+      "timestamp": "2025-07-20T21:01:57.000008",
+      "resolved": false
+    },
+    {
+      "id": "20d0179b-e382-4243-b1d2-82128de2dd2a",
+      "created_at": "2025-07-20T21:01:57.301934",
+      "updated_at": "2025-07-20T21:01:57.301934",
+      "alert_id": "alert_exp_20250720_210149_19",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_cpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "cpu使用率过高: 90.0%",
+      "details": {
+        "resource_type": "cpu",
+        "usage": 0.9
+      },
+      "timestamp": "2025-07-20T21:01:57.301934",
+      "resolved": false
+    },
+    {
+      "id": "ba8e84b7-0872-4791-915f-56ad57e3f3f3",
+      "created_at": "2025-07-20T21:01:57.303364",
+      "updated_at": "2025-07-20T21:01:57.303364",
+      "alert_id": "alert_exp_20250720_210149_20",
+      "experiment_id": "exp_20250720_210149",
+      "alert_type": "high_gpu_usage",
+      "level": "AlertLevel.WARNING",
+      "message": "gpu使用率过高: 93.0%",
+      "details": {
+        "resource_type": "gpu",
+        "usage": 0.9299999999999999
+      },
+      "timestamp": "2025-07-20T21:01:57.303364",
+      "resolved": false
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "68e02c79-e772-4c11-aaf5-d3992d86e402",
+      "created_at": "2025-07-20T21:01:50.958359",
+      "updated_at": "2025-07-20T21:01:50.958359",
+      "suggestion_id": "sugg_exp_20250720_210149_0",
+      "experiment_id": "exp_20250720_210149",
+      "category": "performance",
+      "priority": 5,
+      "title": "提升模型性能",
+      "description": "考虑调整超参数、增加训练数据或改进模型架构",
+      "expected_impact": "提升10-20%的模型性能",
+      "implementation_effort": "high",
+      "timestamp": "2025-07-20T21:01:50.958359",
+      "applied": false
+    },
+    {
+      "id": "b6219a7f-5a75-46d0-92eb-3de53ac1a173",
+      "created_at": "2025-07-20T21:01:50.959883",
+      "updated_at": "2025-07-20T21:01:50.959883",
+      "suggestion_id": "sugg_exp_20250720_210149_1",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:50.959883",
+      "applied": false
+    },
+    {
+      "id": "c84c6408-5def-47a6-93ff-478c9addab8f",
+      "created_at": "2025-07-20T21:01:51.262684",
+      "updated_at": "2025-07-20T21:01:51.262684",
+      "suggestion_id": "sugg_exp_20250720_210149_2",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:51.262684",
+      "applied": false
+    },
+    {
+      "id": "401f99f3-ef92-4690-8bc2-af6a925df988",
+      "created_at": "2025-07-20T21:01:51.563711",
+      "updated_at": "2025-07-20T21:01:51.563711",
+      "suggestion_id": "sugg_exp_20250720_210149_3",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化cpu使用",
+      "description": "考虑优化cpu使用策略或增加cpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:51.563711",
+      "applied": false
+    },
+    {
+      "id": "7a841a54-6c64-4986-b278-1f062212228e",
+      "created_at": "2025-07-20T21:01:51.564782",
+      "updated_at": "2025-07-20T21:01:51.564782",
+      "suggestion_id": "sugg_exp_20250720_210149_4",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:51.564782",
+      "applied": false
+    },
+    {
+      "id": "9a74520e-0c13-4f65-91a6-b2264ca0ba32",
+      "created_at": "2025-07-20T21:01:51.866715",
+      "updated_at": "2025-07-20T21:01:51.866715",
+      "suggestion_id": "sugg_exp_20250720_210149_5",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化cpu使用",
+      "description": "考虑优化cpu使用策略或增加cpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:51.866715",
+      "applied": false
+    },
+    {
+      "id": "d3b0e8b6-b82c-4873-9ad8-fa09f6b6c5c8",
+      "created_at": "2025-07-20T21:01:51.867822",
+      "updated_at": "2025-07-20T21:01:51.867822",
+      "suggestion_id": "sugg_exp_20250720_210149_6",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:51.867822",
+      "applied": false
+    },
+    {
+      "id": "241484bf-9b23-4293-a6f8-9885e46d8a07",
+      "created_at": "2025-07-20T21:01:53.673812",
+      "updated_at": "2025-07-20T21:01:53.673812",
+      "suggestion_id": "sugg_exp_20250720_210149_7",
+      "experiment_id": "exp_20250720_210149",
+      "category": "performance",
+      "priority": 5,
+      "title": "提升模型性能",
+      "description": "考虑调整超参数、增加训练数据或改进模型架构",
+      "expected_impact": "提升10-20%的模型性能",
+      "implementation_effort": "high",
+      "timestamp": "2025-07-20T21:01:53.673812",
+      "applied": false
+    },
+    {
+      "id": "c6b7287a-7c22-48fd-abc3-13ed66c53d41",
+      "created_at": "2025-07-20T21:01:53.676823",
+      "updated_at": "2025-07-20T21:01:53.676823",
+      "suggestion_id": "sugg_exp_20250720_210149_8",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:53.676823",
+      "applied": false
+    },
+    {
+      "id": "a3c36535-c753-45fd-81d8-6e5439ac215b",
+      "created_at": "2025-07-20T21:01:53.977728",
+      "updated_at": "2025-07-20T21:01:53.977728",
+      "suggestion_id": "sugg_exp_20250720_210149_9",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:53.979201",
+      "applied": false
+    },
+    {
+      "id": "0c69c04e-2dde-41ff-847f-bf83ca2bbacd",
+      "created_at": "2025-07-20T21:01:54.280365",
+      "updated_at": "2025-07-20T21:01:54.280365",
+      "suggestion_id": "sugg_exp_20250720_210149_10",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化cpu使用",
+      "description": "考虑优化cpu使用策略或增加cpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:54.280365",
+      "applied": false
+    },
+    {
+      "id": "4f1ef20b-22a0-43c2-8b96-ec5a878aab09",
+      "created_at": "2025-07-20T21:01:54.281411",
+      "updated_at": "2025-07-20T21:01:54.281411",
+      "suggestion_id": "sugg_exp_20250720_210149_11",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:54.281411",
+      "applied": false
+    },
+    {
+      "id": "c571c604-6a43-40d4-b533-e3b68fa2a830",
+      "created_at": "2025-07-20T21:01:54.584275",
+      "updated_at": "2025-07-20T21:01:54.584275",
+      "suggestion_id": "sugg_exp_20250720_210149_12",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化cpu使用",
+      "description": "考虑优化cpu使用策略或增加cpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:54.584275",
+      "applied": false
+    },
+    {
+      "id": "717db580-6f59-4fe9-a4db-0e705805f4bf",
+      "created_at": "2025-07-20T21:01:54.585433",
+      "updated_at": "2025-07-20T21:01:54.585433",
+      "suggestion_id": "sugg_exp_20250720_210149_13",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:54.585433",
+      "applied": false
+    },
+    {
+      "id": "80ddecae-c534-4b84-a0e0-11ec1db40167",
+      "created_at": "2025-07-20T21:01:56.393150",
+      "updated_at": "2025-07-20T21:01:56.393150",
+      "suggestion_id": "sugg_exp_20250720_210149_14",
+      "experiment_id": "exp_20250720_210149",
+      "category": "performance",
+      "priority": 5,
+      "title": "提升模型性能",
+      "description": "考虑调整超参数、增加训练数据或改进模型架构",
+      "expected_impact": "提升10-20%的模型性能",
+      "implementation_effort": "high",
+      "timestamp": "2025-07-20T21:01:56.393150",
+      "applied": false
+    },
+    {
+      "id": "c55e273a-df31-4006-a916-fd7838a46008",
+      "created_at": "2025-07-20T21:01:56.394358",
+      "updated_at": "2025-07-20T21:01:56.394358",
+      "suggestion_id": "sugg_exp_20250720_210149_15",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:56.394358",
+      "applied": false
+    },
+    {
+      "id": "030311ac-a7d9-462f-997a-5f05c30110fc",
+      "created_at": "2025-07-20T21:01:56.697008",
+      "updated_at": "2025-07-20T21:01:56.697008",
+      "suggestion_id": "sugg_exp_20250720_210149_16",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:56.697008",
+      "applied": false
+    },
+    {
+      "id": "551c77ba-0e9b-4e4b-9988-53df03fe8c79",
+      "created_at": "2025-07-20T21:01:57.000008",
+      "updated_at": "2025-07-20T21:01:57.000008",
+      "suggestion_id": "sugg_exp_20250720_210149_17",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化cpu使用",
+      "description": "考虑优化cpu使用策略或增加cpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:57.000008",
+      "applied": false
+    },
+    {
+      "id": "670b8138-a319-4cd3-ada9-c070363500c7",
+      "created_at": "2025-07-20T21:01:57.001036",
+      "updated_at": "2025-07-20T21:01:57.001036",
+      "suggestion_id": "sugg_exp_20250720_210149_18",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:57.001036",
+      "applied": false
+    },
+    {
+      "id": "6d68dc8c-2256-4c50-a272-5aa1d588d651",
+      "created_at": "2025-07-20T21:01:57.301934",
+      "updated_at": "2025-07-20T21:01:57.301934",
+      "suggestion_id": "sugg_exp_20250720_210149_19",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化cpu使用",
+      "description": "考虑优化cpu使用策略或增加cpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:57.301934",
+      "applied": false
+    },
+    {
+      "id": "034bd09d-59d0-4591-9305-198a297e0924",
+      "created_at": "2025-07-20T21:01:57.303364",
+      "updated_at": "2025-07-20T21:01:57.303364",
+      "suggestion_id": "sugg_exp_20250720_210149_20",
+      "experiment_id": "exp_20250720_210149",
+      "category": "resource",
+      "priority": 3,
+      "title": "优化gpu使用",
+      "description": "考虑优化gpu使用策略或增加gpu配额",
+      "expected_impact": "降低资源使用压力",
+      "implementation_effort": "low",
+      "timestamp": "2025-07-20T21:01:57.303364",
+      "applied": false
+    }
+  ],
+  "statistics": {
+    "experiment_duration": 8.154473,
+    "progress_percentage": 80.0,
+    "total_alerts": 21,
+    "active_alerts": 21,
+    "total_suggestions": 21,
+    "pending_suggestions": 21,
+    "resource_usage_summary": {
+      "cpu": 0.4,
+      "memory": 0.3,
+      "gpu": 0.5
+    },
+    "performance_summary": {
+      "accuracy": 0.92,
+      "loss": 0.15,
+      "epoch": 5,
+      "val_accuracy": 0.9,
+      "test_accuracy": 0.91
+    }
+  }
+}

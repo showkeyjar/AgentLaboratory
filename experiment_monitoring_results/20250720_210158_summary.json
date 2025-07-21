@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-07-20T21:01:58.224356",
+  "total_experiments": 3,
+  "experiments": [
+    {
+      "name": "图像分类实验",
+      "id": "exp_20250720_210149",
+      "status": "completed",
+      "progress": 80.0,
+      "alerts": 21,
+      "suggestions": 21,
+      "final_accuracy": 0.92
+    },
+    {
+      "name": "NLP实验",
+      "id": "exp_20250720_210149",
+      "status": "completed",
+      "progress": 80.0,
+      "alerts": 21,
+      "suggestions": 21,
+      "final_accuracy": 0.92
+    },
+    {
+      "name": "强化学习实验",
+      "id": "exp_20250720_210149",
+      "status": "completed",
+      "progress": 80.0,
+      "alerts": 21,
+      "suggestions": 21,
+      "final_accuracy": 0.92
+    }
+  ]
+}

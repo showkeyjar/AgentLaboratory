@@ -7,6 +7,10 @@
 from .research_planner import ResearchPlannerComponent
 from .literature_analyzer import AdaptiveLiteratureComponent
 from .experiment_designer import ExperimentDesignComponent
+from .feasibility_assessor import FeasibilityAssessor
+from .parameter_optimizer import ParameterOptimizer
+from .alternative_recommender import AlternativeRecommender
+from .experiment_monitor import ExperimentMonitor
 from .data_analyzer import DataAnalysisComponent
 from .report_generator import ReportGenerationComponent
 from .collaboration_manager import CollaborationComponent
@@ -19,7 +23,11 @@ __all__ = [
     'BaseComponent',
     'ResearchPlannerComponent',
     'AdaptiveLiteratureComponent',
-    'ExperimentDesignComponent', 
+    'ExperimentDesignComponent',
+    'FeasibilityAssessor',
+    'ParameterOptimizer',
+    'AlternativeRecommender',
+    'ExperimentMonitor',
     'DataAnalysisComponent',
     'ReportGenerationComponent',
     'CollaborationComponent',
